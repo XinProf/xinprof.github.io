@@ -4,14 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>XinProf — Open-source powder XRD software</title>
-  <meta name="description" content="XinProf builds open tools for powder X-ray diffraction: phase identification, whole-pattern Rietveld refinement, .xinDB reference libraries, and MCP integrations for established refinement engines.">
+  <meta id="meta-desc" name="description" content="XinProf builds open tools for powder X-ray diffraction: phase identification, whole-pattern Rietveld refinement, .xinDB reference libraries, and MCP integrations for established refinement engines.">
   <meta name="theme-color" content="#14213d">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="XinProf — Open-source powder XRD software">
-  <meta property="og:description" content="From diffraction pattern to refined structure. Open tools for phase identification, whole-pattern fitting, reference databases and AI-agent integrations.">
+  <meta id="meta-og-title" property="og:title" content="XinProf — Open-source powder XRD software">
+  <meta id="meta-og-desc" property="og:description" content="From diffraction pattern to refined structure. Open tools for phase identification, whole-pattern fitting, reference databases and AI-agent integrations.">
   <meta property="og:url" content="https://xinprof.github.io/">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      var valid = {en:1,zh:1,ja:1,de:1,fr:1,ar:1};
+      var l = null;
+      var p = new URLSearchParams(location.search).get("lang");
+      var h = (location.hash || "").replace(/^#/, "");
+      if (p && valid[p]) l = p;
+      else if (h && valid[h]) l = h;
+      else { try { l = localStorage.getItem("xinprof-lang"); } catch (e) {} }
+      if (!l || !valid[l]) l = "en";
+      document.documentElement.lang = l;
+      document.documentElement.dir = (l === "ar") ? "rtl" : "ltr";
+    })();
+  </script>
 </head>
 <body>
 
@@ -22,12 +36,23 @@
         Xin<span>Prof</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a class="nav-optional" href="#workflow">Workflow</a>
-        <a class="nav-optional" href="#about">About</a>
+        <a href="#projects" data-i18n="nav_projects">Projects</a>
+        <a class="nav-optional" href="#workflow" data-i18n="nav_workflow">Workflow</a>
+        <a class="nav-optional" href="#about" data-i18n="nav_about">About</a>
+        <label class="lang-switch">
+          <span id="lang-label" class="visually-hidden" data-i18n="lang_label">Select language</span>
+          <select id="lang-select" aria-labelledby="lang-label">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
         <a class="nav-github" href="https://github.com/XinProf" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          GitHub
+          <span data-i18n="nav_github">GitHub</span>
         </a>
       </nav>
     </div>
@@ -40,36 +65,36 @@
       <div class="wrap">
         <div class="hero-grid">
           <div>
-            <span class="eyebrow">Open-source powder diffraction</span>
-            <h1>From diffraction pattern to <span class="accent">refined structure.</span></h1>
-            <p class="hero-lead">
+            <span class="eyebrow" data-i18n="hero_eyebrow">Open-source powder diffraction</span>
+            <h1 data-i18n="hero_title">From diffraction pattern to <span class="accent">refined structure.</span></h1>
+            <p class="hero-lead" data-i18n="hero_lead">
               XinProf builds open tools for phase identification, whole-pattern fitting,
               reference databases and AI-agent integrations — grounded in published
               algorithms and open crystallographic data.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#projects">
-                Explore the projects
+                <span data-i18n="btn_explore">Explore the projects</span>
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 2.5v11M3.5 9l4.5 4.5L12.5 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
               <a class="btn btn-ghost" href="https://github.com/XinProf?tab=repositories" target="_blank" rel="noopener noreferrer">
-                All repositories
+                <span data-i18n="btn_repos">All repositories</span>
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
           <figure class="hero-art">
-            <img src="assets/img/diffraction.svg" width="800" height="344"
+            <img src="assets/img/diffraction.svg" width="800" height="344" data-i18n-alt="img_hero_alt"
                  alt="Powder X-ray diffraction pattern with two sets of reference peak positions">
-            <figcaption>Observed pattern and reference peak positions for two candidate phases.</figcaption>
+            <figcaption data-i18n="hero_caption">Observed pattern and reference peak positions for two candidate phases.</figcaption>
           </figure>
         </div>
 
         <div class="stats" aria-label="Project statistics">
-          <div class="stat"><div class="stat-num">10</div><div class="stat-label">Public repositories</div></div>
-          <div class="stat"><div class="stat-num">2</div><div class="stat-label">Desktop applications</div></div>
-          <div class="stat"><div class="stat-num">4</div><div class="stat-label">MCP integrations</div></div>
-          <div class="stat"><div class="stat-num">8</div><div class="stat-label">Spectrum formats supported</div></div>
+          <div class="stat"><div class="stat-num">10</div><div class="stat-label" data-i18n="stat_repos">Public repositories</div></div>
+          <div class="stat"><div class="stat-num">2</div><div class="stat-label" data-i18n="stat_apps">Desktop applications</div></div>
+          <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat_mcp">MCP integrations</div></div>
+          <div class="stat"><div class="stat-num">8</div><div class="stat-label" data-i18n="stat_formats">Spectrum formats supported</div></div>
         </div>
       </div>
     </section>
@@ -78,22 +103,22 @@
     <section id="projects">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-kicker">Projects</div>
-          <h2>A complete, open toolchain</h2>
-          <p>Ten public repositories covering the full path from raw diffraction data to a refined crystal structure — plus the reference libraries and agent integrations that connect it all.</p>
+          <div class="section-kicker" data-i18n="projects_kicker">Projects</div>
+          <h2 data-i18n="projects_title">A complete, open toolchain</h2>
+          <p data-i18n="projects_intro">Ten public repositories covering the full path from raw diffraction data to a refined crystal structure — plus the reference libraries and agent integrations that connect it all.</p>
         </div>
 
-        <h3 class="group-title">Core applications</h3>
+        <h3 class="group-title" data-i18n="group_core">Core applications</h3>
         <div class="cards cards-2">
           <article class="card card-feature">
             <img src="assets/img/logo-xinmatch.png" width="92" height="92" alt="XinMatch logo">
             <div class="card-body">
               <h3>XinMatch</h3>
-              <p>Open-source powder XRD phase-analysis platform: search-match, sequential multi-phase identification and Rietveld quantification, with a PySide6 GUI, CLI and Python library API.</p>
-              <div class="tags"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">Search–match</span><span class="tag">.xinDB v3</span></div>
+              <p data-i18n="desc_xinmatch">Open-source powder XRD phase-analysis platform: search-match, sequential multi-phase identification and Rietveld quantification, with a PySide6 GUI, CLI and Python library API.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag" data-i18n="tag_searchmatch">Search–match</span><span class="tag">.xinDB v3</span></div>
               <div class="card-foot">
                 <span class="lang"><span class="dot"></span>Python</span>
-                <a class="repo-link" href="https://github.com/XinProf/XinMatch" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a class="repo-link" href="https://github.com/XinProf/XinMatch" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </article>
@@ -102,101 +127,101 @@
             <img src="assets/img/logo-xinrefinement.png" width="92" height="92" alt="XinRefinement logo">
             <div class="card-body">
               <h3>XinRefinement</h3>
-              <p>Desktop application for whole-pattern fitting — Rietveld structural refinement, Le Bail and profile refinement, with a Qt6 GUI, CLI and Python library API.</p>
+              <p data-i18n="desc_xinrefinement">Desktop application for whole-pattern fitting — Rietveld structural refinement, Le Bail and profile refinement, with a Qt6 GUI, CLI and Python library API.</p>
               <div class="tags"><span class="tag">Python</span><span class="tag">Qt6</span><span class="tag">Rietveld</span><span class="tag">Le Bail</span></div>
               <div class="card-foot">
                 <span class="lang"><span class="dot"></span>Python</span>
-                <a class="repo-link" href="https://github.com/XinProf/XinRefinement" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a class="repo-link" href="https://github.com/XinProf/XinRefinement" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
               </div>
             </div>
           </article>
         </div>
 
-        <h3 class="group-title">Reference data</h3>
+        <h3 class="group-title" data-i18n="group_data">Reference data</h3>
         <div class="cards cards-2">
           <article class="card">
             <div class="card-top"><span class="monogram mono-data">DB</span><h3>XinMatch-DataBase</h3></div>
-            <p>Build scripts, format specification and release artifacts for <code>.xinDB</code> v3 reference phase libraries — COD / PCOD / TCOD and Materials Project.</p>
+            <p data-i18n="desc_database">Build scripts, format specification and release artifacts for <code>.xinDB</code> v3 reference phase libraries — COD / PCOD / TCOD and Materials Project.</p>
             <div class="tags"><span class="tag">.xinDB v3</span><span class="tag">COD</span><span class="tag">Materials Project</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/XinMatch-DataBase" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/XinMatch-DataBase" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-top"><span class="monogram mono-data">SC</span><h3>sync-COD</h3></div>
-            <p>Shared COD / PCOD / TCOD source-data root for the two database builds, with acceptance and sync tooling. The CIF data itself is not included.</p>
-            <div class="tags"><span class="tag">CIF</span><span class="tag">Data pipeline</span><span class="tag">Validation</span></div>
+            <p data-i18n="desc_synccod">Shared COD / PCOD / TCOD source-data root for the two database builds, with acceptance and sync tooling. The CIF data itself is not included.</p>
+            <div class="tags"><span class="tag">CIF</span><span class="tag" data-i18n="tag_datapipeline">Data pipeline</span><span class="tag" data-i18n="tag_validation">Validation</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/sync-COD" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/sync-COD" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
         </div>
 
-        <h3 class="group-title">Utilities</h3>
+        <h3 class="group-title" data-i18n="group_utils">Utilities</h3>
         <div class="cards cards-2">
           <article class="card">
             <div class="card-top"><span class="monogram mono-util">CV</span><h3>PolyXRD-Converter</h3></div>
-            <p>Converts between powder diffraction spectrum formats: xy, txt, dat, csv, mdi, raw, xrdml and json.</p>
-            <div class="tags"><span class="tag">8 formats</span><span class="tag">File I/O</span></div>
+            <p data-i18n="desc_converter">Converts between powder diffraction spectrum formats: xy, txt, dat, csv, mdi, raw, xrdml and json.</p>
+            <div class="tags"><span class="tag" data-i18n="tag_8formats">8 formats</span><span class="tag">File I/O</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/PolyXRD-Converter" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/PolyXRD-Converter" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-top"><span class="monogram mono-util">SP</span><h3>PolyXRD-SynthPattern</h3></div>
-            <p>Synthetic XRD pattern generator that simulates diffraction patterns to support phase identification and algorithm validation.</p>
-            <div class="tags"><span class="tag">Simulation</span><span class="tag">Validation</span></div>
+            <p data-i18n="desc_synth">Synthetic XRD pattern generator that simulates diffraction patterns to support phase identification and algorithm validation.</p>
+            <div class="tags"><span class="tag" data-i18n="tag_simulation">Simulation</span><span class="tag" data-i18n="tag_validation">Validation</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/PolyXRD-SynthPattern" target="_blank" rel="noopener noreferrer">View repository <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/PolyXRD-SynthPattern" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_full">View repository</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
         </div>
 
-        <h3 class="group-title">MCP integrations</h3>
+        <h3 class="group-title" data-i18n="group_mcp">MCP integrations</h3>
         <div class="cards cards-4">
           <article class="card">
             <div class="card-top"><span class="monogram mono-mcp">G2</span><h3>GSAS2-MCP</h3></div>
-            <p>MCP server for GSAS-II — Rietveld refinement, crystallographic analysis and protocol integration.</p>
+            <p data-i18n="desc_gsas">MCP server for GSAS-II — Rietveld refinement, crystallographic analysis and protocol integration.</p>
             <div class="tags"><span class="tag">MCP</span><span class="tag">GSAS-II</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/GSAS2-MCP" target="_blank" rel="noopener noreferrer">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/GSAS2-MCP" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_short">View</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-top"><span class="monogram mono-mcp">FP</span><h3>FullProf-App-MCP</h3></div>
-            <p>MCP server for FullProf — Rietveld refinement and powder diffraction analysis.</p>
+            <p data-i18n="desc_fullprof">MCP server for FullProf — Rietveld refinement and powder diffraction analysis.</p>
             <div class="tags"><span class="tag">MCP</span><span class="tag">FullProf</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot"></span>Python</span>
-              <a class="repo-link" href="https://github.com/XinProf/FullProf-App-MCP" target="_blank" rel="noopener noreferrer">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/FullProf-App-MCP" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_short">View</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-top"><span class="monogram mono-mcp">PX</span><h3>Profex-MCP</h3></div>
-            <p>MCP server for Profex/BGMN — XRD analysis, search-match, COD database and Rietveld refinement.</p>
+            <p data-i18n="desc_profex">MCP server for Profex/BGMN — XRD analysis, search-match, COD database and Rietveld refinement.</p>
             <div class="tags"><span class="tag">MCP</span><span class="tag">BGMN</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot cpp"></span>C++</span>
-              <a class="repo-link" href="https://github.com/XinProf/Profex-MCP" target="_blank" rel="noopener noreferrer">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/Profex-MCP" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_short">View</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
 
           <article class="card">
             <div class="card-top"><span class="monogram mono-mcp">MA</span><h3>MAUD-MCP</h3></div>
-            <p>MCP server for MAUD — combined diffraction analysis, texture, stress and structure analysis.</p>
+            <p data-i18n="desc_maud">MCP server for MAUD — combined diffraction analysis, texture, stress and structure analysis.</p>
             <div class="tags"><span class="tag">MCP</span><span class="tag">MAUD</span></div>
             <div class="card-foot">
               <span class="lang"><span class="dot java"></span>Java</span>
-              <a class="repo-link" href="https://github.com/XinProf/MAUD-MCP" target="_blank" rel="noopener noreferrer">View <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              <a class="repo-link" href="https://github.com/XinProf/MAUD-MCP" target="_blank" rel="noopener noreferrer"><span data-i18n="repo_short">View</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </article>
         </div>
@@ -207,19 +232,19 @@
     <section id="workflow">
       <div class="wrap">
         <div class="section-head">
-          <div class="section-kicker">Workflow</div>
-          <h2>How the pieces fit together</h2>
-          <p>Open CIF sources are indexed into reproducible reference libraries, consumed by the applications, and connected to established refinement engines through the MCP layer.</p>
+          <div class="section-kicker" data-i18n="workflow_kicker">Workflow</div>
+          <h2 data-i18n="workflow_title">How the pieces fit together</h2>
+          <p data-i18n="workflow_intro">Open CIF sources are indexed into reproducible reference libraries, consumed by the applications, and connected to established refinement engines through the MCP layer.</p>
         </div>
         <figure class="workflow-figure">
-          <img src="assets/img/workflow.svg" width="1000" height="250"
+          <img src="assets/img/workflow.svg" width="1000" height="250" data-i18n-alt="img_workflow_alt"
                alt="Data flow from open CIF sources through database builds to phase identification and whole-pattern refinement, with an MCP integration layer">
-          <figcaption>From open CIF sources to phase identification and whole-pattern refinement.</figcaption>
+          <figcaption data-i18n="workflow_caption">From open CIF sources to phase identification and whole-pattern refinement.</figcaption>
         </figure>
         <div class="notes">
-          <div class="note"><strong>Open data in</strong><span>COD, PCOD and TCOD CIF archives feed a shared, validated data root and reproducible database builds.</span></div>
-          <div class="note"><strong>One library format</strong><span><code>.xinDB</code> v3 is the single columnar reference format used across the applications.</span></div>
-          <div class="note"><strong>Agent-ready</strong><span>Four MCP servers expose established refinement engines to AI agents and automated workflows.</span></div>
+          <div class="note"><strong data-i18n="note1_title">Open data in</strong><span data-i18n="note1_text">COD, PCOD and TCOD CIF archives feed a shared, validated data root and reproducible database builds.</span></div>
+          <div class="note"><strong data-i18n="note2_title">One library format</strong><span data-i18n="note2_text">.xinDB v3 is the single columnar reference format used across the applications.</span></div>
+          <div class="note"><strong data-i18n="note3_title">Agent-ready</strong><span data-i18n="note3_text">Four MCP servers expose established refinement engines to AI agents and automated workflows.</span></div>
         </div>
       </div>
     </section>
@@ -228,18 +253,18 @@
     <section id="about">
       <div class="wrap about-grid">
         <div class="about-copy">
-          <div class="section-kicker">About</div>
-          <h2>Built in the open, on open data</h2>
-          <p>XinProf develops powder X-ray diffraction software using a clean-room approach: behaviour is derived from official documentation, published algorithms and black-box file-format observation for interoperability.</p>
-          <p>Reference libraries are built from the Crystallography Open Database (CC0) and other open sources. Proprietary reference databases are never redistributed. All ten repositories are public and distributed under a dual Academic + Commercial license.</p>
-          <p>For commercial licensing or collaboration, get in touch by <a href="mailto:sshztx@outlook.com" style="color:var(--accent);font-weight:600">email</a>.</p>
+          <div class="section-kicker" data-i18n="about_kicker">About</div>
+          <h2 data-i18n="about_title">Built in the open, on open data</h2>
+          <p data-i18n="about_p1">XinProf develops powder X-ray diffraction software using a clean-room approach: behaviour is derived from official documentation, published algorithms and black-box file-format observation for interoperability.</p>
+          <p data-i18n="about_p2">Reference libraries are built from the Crystallography Open Database (CC0) and other open sources. Proprietary reference databases are never redistributed. All ten repositories are public and distributed under a dual Academic + Commercial license.</p>
+          <p data-i18n="about_p3">For commercial licensing or collaboration, get in touch by <a class="mail-link" href="mailto:sshztx@outlook.com">email</a>.</p>
           <div class="stack" aria-label="Technology stack">
             <span>Python 3.10</span><span>PySide6 / Qt6</span><span>NumPy / SciPy</span><span>spglib</span>
             <span>.xinDB v3</span><span>COD CIF</span><span>MCP</span><span>pytest</span>
           </div>
         </div>
         <div class="about-art">
-          <img src="assets/img/lattice.svg" width="300" height="240" alt="Crystal lattice diagram">
+          <img src="assets/img/lattice.svg" width="300" height="240" data-i18n-alt="img_lattice_alt" alt="Crystal lattice diagram">
         </div>
       </div>
     </section>
@@ -250,16 +275,17 @@
     <div class="wrap footer-inner">
       <div>
         <div class="footer-brand"><img src="assets/img/favicon.svg" alt="" width="26" height="26"> XinProf</div>
-        <p style="margin-top:8px">© 2026 XinProf · Built with plain HTML, CSS and SVG.</p>
+        <p style="margin-top:8px" data-i18n="footer_text">© 2026 XinProf · Built with plain HTML, CSS and SVG.</p>
       </div>
       <nav class="footer-links" aria-label="Footer links">
-        <a href="https://github.com/XinProf?tab=repositories" target="_blank" rel="noopener noreferrer">Repositories</a>
-        <a href="https://github.com/XinProf/XinMatch/releases" target="_blank" rel="noopener noreferrer">Releases</a>
-        <a href="https://github.com/XinProf/XinMatch/blob/master/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
-        <a href="mailto:sshztx@outlook.com">Contact</a>
+        <a href="https://github.com/XinProf?tab=repositories" target="_blank" rel="noopener noreferrer" data-i18n="footer_repos">Repositories</a>
+        <a href="https://github.com/XinProf/XinMatch/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer_releases">Releases</a>
+        <a href="https://github.com/XinProf/XinMatch/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" data-i18n="footer_license">License</a>
+        <a href="mailto:sshztx@outlook.com" data-i18n="footer_contact">Contact</a>
       </nav>
     </div>
   </footer>
 
+  <script src="assets/js/i18n.js"></script>
 </body>
 </html>
