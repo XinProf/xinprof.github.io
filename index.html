@@ -36,6 +36,7 @@
         <span class="brand-word">Xin<span>Prof</span></span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-optional" href="#guides" data-i18n="nav_guides">Product guides</a>
         <a href="#projects" data-i18n="nav_projects">Projects</a>
         <a class="nav-optional" href="#workflow" data-i18n="nav_workflow">Workflow</a>
         <a class="nav-optional" href="#about" data-i18n="nav_about">About</a>
@@ -82,6 +83,11 @@
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
+            <a class="hero-guide-link" href="#guides">
+              <span class="guide-pulse" aria-hidden="true"></span>
+              <span data-i18n="hero_guides">New: 4 interactive product guides</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
           <figure class="hero-art">
             <img src="assets/img/diffraction.svg" width="800" height="344" data-i18n-alt="img_hero_alt"
@@ -95,6 +101,63 @@
           <div class="stat"><div class="stat-num">2</div><div class="stat-label" data-i18n="stat_apps">Desktop applications</div></div>
           <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat_mcp">MCP integrations</div></div>
           <div class="stat"><div class="stat-num">8</div><div class="stat-label" data-i18n="stat_formats">Spectrum formats supported</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product guides -->
+    <section id="guides" class="guides-section">
+      <div class="wrap">
+        <div class="section-head guides-head">
+          <div class="section-kicker" data-i18n="guides_kicker">Product guides</div>
+          <h2 data-i18n="guides_title">Get to know the XinProf software family</h2>
+          <p data-i18n="guides_intro">Four self-contained, interactive guides covering phase analysis, whole-pattern refinement, the professional edition and the reference database. Open a guide to explore the full story.</p>
+        </div>
+
+        <div class="guide-grid">
+          <a class="guide-card guide-match" href="XinMatch-Intro.html">
+            <span class="guide-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13" cy="13" r="8"/><path d="m9 15 3-4 3 5 2-3" stroke-linecap="round" stroke-linejoin="round"/><path d="m19 19 9 9" stroke-linecap="round"/></svg>
+            </span>
+            <span class="guide-badge" data-i18n="guide_badge">Interactive guide</span>
+            <h3 class="guide-name">XinMatch</h3>
+            <span class="guide-sub" data-i18n="guide_match_sub">Phase analysis · search–match</span>
+            <p class="guide-desc" data-i18n="desc_xinmatch">Open-source powder XRD phase-analysis platform: search-match, sequential multi-phase identification and Rietveld quantification, with a PySide6 GUI, CLI and Python library API.</p>
+            <span class="guide-cta"><span data-i18n="guide_open">Open guide</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="guide-card guide-refinement" href="XinRefinement-Intro.html">
+            <span class="guide-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 24c4 0 5-13 9-13s4 13 8 13 4-9 9-9" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 28h26" stroke-linecap="round" opacity=".4"/></svg>
+            </span>
+            <span class="guide-badge" data-i18n="guide_badge">Interactive guide</span>
+            <h3 class="guide-name">XinRefinement</h3>
+            <span class="guide-sub" data-i18n="guide_refinement_sub">Rietveld refinement · Le Bail</span>
+            <p class="guide-desc" data-i18n="desc_xinrefinement">Desktop application for whole-pattern fitting — Rietveld structural refinement, Le Bail and profile refinement, with a Qt6 GUI, CLI and Python library API.</p>
+            <span class="guide-cta"><span data-i18n="guide_open">Open guide</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="guide-card guide-pro" href="XinRefinePro-Intro.html">
+            <span class="guide-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 3 29 10 16 17 3 10z" stroke-linejoin="round"/><path d="m3 16 13 7 13-7" stroke-linecap="round" stroke-linejoin="round"/><path d="m3 22 13 7 13-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="guide-badge" data-i18n="guide_badge">Interactive guide</span>
+            <h3 class="guide-name">XinRefinePro</h3>
+            <span class="guide-sub" data-i18n="guide_pro_sub">Professional refinement suite</span>
+            <p class="guide-desc" data-i18n="desc_refinepro">Professional desktop software for powder diffraction: sequential and joint Rietveld refinement, 18 advanced capabilities and traceable professional reports.</p>
+            <span class="guide-cta"><span data-i18n="guide_open">Open guide</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+
+          <a class="guide-card guide-database" href="XinDataBase-Intro.html">
+            <span class="guide-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="16" cy="7" rx="11" ry="4"/><path d="M5 7v18c0 2.2 4.9 4 11 4s11-1.8 11-4V7"/><path d="M5 16c0 2.2 4.9 4 11 4s11-1.8 11-4"/></svg>
+            </span>
+            <span class="guide-badge" data-i18n="guide_badge">Interactive guide</span>
+            <h3 class="guide-name">XinMatch Reference Database</h3>
+            <span class="guide-sub" data-i18n="guide_database_sub">.xinDB reference libraries</span>
+            <p class="guide-desc" data-i18n="desc_database">Build scripts, format specification and release artifacts for .xinDB v3 reference phase libraries — COD / PCOD / TCOD and Materials Project.</p>
+            <span class="guide-cta"><span data-i18n="guide_open">Open guide</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
       </div>
     </section>
